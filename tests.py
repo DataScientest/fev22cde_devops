@@ -43,3 +43,22 @@ def test_get_health():
 
     assert "status" in data
     assert data["status"] == 1
+
+
+def test_delete_users():
+    # DELETE /users
+    # {"action": "user deleted", "user_id": int}
+
+    response = requests.delete(
+        url=f"{API_URL}/users"
+    )
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert "action" in data
+    assert "user_id" in data
+
+    assert data["action"] == "user deleted"
+    assert type(data["user_id"]) == int
