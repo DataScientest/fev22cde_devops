@@ -62,3 +62,19 @@ def test_delete_users():
 
     assert data["action"] == "user deleted"
     assert type(data["user_id"]) == int
+
+
+# GET /bye
+# renvoie {"bye": "bye"}
+
+def test_get_bye():
+    response = requests.get(
+        url=f"{API_URL}/bye"
+    )
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert "bye" in data
+    assert data["bye"] == "bye"

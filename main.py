@@ -43,3 +43,12 @@ def delete_user():
         "action": "user deleted",
         "user_id": random.randint(0, 10000)
     }
+
+
+@api.get("/bye")
+def get_bye():
+    """Fonction pour dire au revoir
+    """
+    return {
+        "bye": "bye"
+    }
