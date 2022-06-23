@@ -35,3 +35,11 @@ def ma_fonction():
     return {
         "status": 1
     }
+
+
+@api.delete("/users")
+def delete_user():
+    return {
+        "action": "user deleted",
+        "user_id": random.randint(0, 10000)
+    }
